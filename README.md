@@ -20,11 +20,11 @@
   我是通過原始碼(已經編譯好了)安裝，步驟如下:
   
   ```bash
-  wget https://nodejs.org/dist/v8.9.3/node-v8.9.3-linux-x64.tar.xz
-  tar -xvf node-v8.9.3-linux-x64.tar.xz
-  sudo mv node-v8.9.3-linux-x64 /usr/local
-  sudo ln -s /usr/local/node-v8.9.3-linux-x64/bin/node /usr/local/bin/node 
-  sudo ln -s /usr/local/node-v8.9.3-linux-x64/bin/npm /usr/local/bin/npm
+  wget https://nodejs.org/dist/v8.12.0/node-v8.12.0-linux-x64.tar.xz
+  tar -xvf node-v8.12.0-linux-x64.tar.xz
+  sudo mv node-v8.12.0-linux-x64 /usr/local
+  sudo ln -s /usr/local/node-v8.12.0-linux-x64/bin/node /usr/local/bin/node 
+  sudo ln -s /usr/local/node-v8.12.0-linux-x64/bin/npm /usr/local/bin/npm
   ```
 
 2. 部署
@@ -35,6 +35,9 @@
   cd OnlineJudgeFE
   npm install
   ```
+  https://github.com/nodejs-tw/nodejs-wiki-book/blob/master/zh-tw/node_npm.rst
+  
+  如果出現以下代碼:
   
   ```
   npm WARN notice [SECURITY] mime has the following vulnerability: 1 moderate. Go here for more details: https://www.npmjs.com/advisories?search=mime&version=1.3.6 - Run `npm i npm@latest -g` to upgrade your npm version, and then `npm audit` to get more info.
@@ -52,6 +55,36 @@
   npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.4: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
 
   added 1440 packages in 32.112s
+  ```
+  
+  執行:
+  
+  ```bash
+  npm i npm@latest -g
+  npm audit
+  ```
+  
+  如果出現:
+  
+  ```bash
+  found 859 vulnerabilities (312 low, 34 moderate, 513 high) in 15761 scanned packages
+  run `npm audit fix` to fix 825 of them.
+  8 vulnerabilities require semver-major dependency updates.
+  26 vulnerabilities require manual review. See the full report for details.
+  ```
+  
+   執行:
+  
+  ```bash
+  npm audit fix
+  ```
+  
+  ```
+  fixed 825 of 859 vulnerabilities in 15761 scanned packages
+  26 vulnerabilities required manual review and could not be updated
+  6 package updates for 8 vulnerabilities involved breaking changes
+  (use `npm audit fix --force` to install breaking changes; or refer to `npm audit` for steps to fix these manually)
+
   ```
   
   ```bash
